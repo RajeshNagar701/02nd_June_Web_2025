@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	
+	<!--
+	
+	grid : The Grid Layout Module offers a grid-based layout system, with rows and columns.
+	-->
+	
+	
+	
+	<style>
+		
+		*{
+			box-sizing:border-box;
+		}
+		
+		.row{
+			display:flex;
+			flex-wrap: wrap;
+		}
+		.col-1{ width:8.33% }
+		.col-2{ width:16.66% }
+		.col-3{ width:25% }
+		.col-4{ width:33.33% }=
+		.col-5{ width:41.66% }
+		.col-6{ width:50% }
+		.col-7{ width:58.33% }
+		.col-8{ width:66.66% }
+		.col-9{ width:75% }
+		.col-10{ width:83.33% }
+		.col-11{ width:91.66% }
+		.col-12{ width:100% }
+		
+		.head1{
+			background-color:red;
+			text-align:center;
+			color:white;
+		}
+		
+		.head2{
+			background-color:pink;
+			text-align:center;
+			color:white;
+		}
+		
+		.navbar{
+			background-color:blue;
+			text-align:center;
+			color:white;
+		}
+		
+		.sidebar{
+			background-color:green;
+			text-align:center;
+			color:white;
+		}
+		.mainbar{
+			background-color:LightGray;
+			text-align:center;
+			color:white;
+		}
+		.footer{
+			background-color:black;
+			text-align:center;
+			color:white;
+		}
+	</style>
+	
+</head>
+<body>
+ 
+	
+	<div class="row">
+		<div class="col-12 head1"> 
+			<h1>Head 1</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 head2"> 
+			<h6>Head 2</h6>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 navbar"> 
+			<h6>Navbar</h6>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-2 sidebar"> 
+			<h1>Sidebar</h1>
+		</div>
+		<div class="col-8 mainbar"> 
+			<h1>Mainbar</h1>
+			<h1>Mainbar</h1>
+			<h1>Mainbar</h1>
+			<h1>Mainbar</h1>
+			<h1>Mainbar</h1>
+			<h1>Mainbar</h1>
+			<h1>Mainbar</h1>
+			<h1>Mainbar</h1>
+			<h1>Mainbar</h1>
+			<h1>Mainbar</h1>
+			<h1>Mainbar</h1>
+			<h1>Mainbar</h1>
+			<h1>Mainbar</h1>
+		</div>
+		<div class="col-2 sidebar"> 
+			<h1>Sidebar</h1>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-3 footer"> 
+			<h1>Footer 1</h1>
+		</div>
+		<div class="col-3 footer"> 
+			<h1>Footer 2</h1>
+			<h1>Footer 2</h1>
+		</div>
+		<div class="col-3 footer"> 
+			<h1>Footer 3</h1>
+			<h1>Footer 3</h1>
+			<h1>Footer 3</h1>
+		</div>
+		<div class="col-3 footer"> 
+			<h1>Footer 4</h1>
+			<h1>Footer 4</h1>
+			<h1>Footer 4</h1>
+			<h1>Footer 4</h1>
+		</div>
+	</div>
+</body>
+</html>
