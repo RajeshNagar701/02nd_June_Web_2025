@@ -1,12 +1,8 @@
 
+<h1 style="color:red" id="msg" align="center"></h1>
 <form action="" method="post" onsubmit="return validation3(this)">
 			<table border="2" align="center">
-            	<tr>
-                	<th> Registration 3 </th>
-					<th> 
-						<p style="color:red" id="msg"></p>
-					</th>
-                </tr>
+            	
                 <tr>
             		<th>User Fist Name:-</th>
                     <td><input type="text" name="ufn" id="ufn"></td>
@@ -27,7 +23,7 @@
 <script>
 function validation3(arg){
 	
-	if(arg.ufn.value=="")
+	if(arg.ufn.value=="") // document.getElementById('ufn').value;
 	{
 		document.getElementById('msg').innerHTML='First Name Field is required';
 		arg.ufn.focus();
