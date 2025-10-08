@@ -14,8 +14,7 @@ function myFunction1() {
 <br>
 <br>
 
-<p>This document was last modified <span id="demo2"></span>.</p>
-
+<p>This document was last modified sdasd <span id="demo2"></span>.</p>
 <script>
 document.getElementById("demo2").innerHTML = document.lastModified;
 </script>
@@ -24,7 +23,6 @@ document.getElementById("demo2").innerHTML = document.lastModified;
 <br>
 
 <p id="demo3"></p>
-
 <script>
 document.getElementById("demo3").innerHTML =
 "The title of this document is: " + document.title;
@@ -34,10 +32,18 @@ document.getElementById("demo3").innerHTML =
 <br>
 
 <p>The full URL of this document is: <br><span id="demo4"></span>.</p>
-
 <script>
 document.getElementById("demo4").innerHTML = document.URL
+
+
+
+
+
+document.write(localStorage.getItem("movie"));
 </script>
+
+
+
 
 
 <br>

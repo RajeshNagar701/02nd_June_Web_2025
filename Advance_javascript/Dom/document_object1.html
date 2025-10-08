@@ -14,7 +14,7 @@ JavaScript can react to all existing HTML events in the page
 JavaScript can create new HTML events in the page
 
 
-What is the HTML DOM?
+What is the HTML DOM?   (Document Object Model)
 The HTML DOM is a standard object model and programming interface for HTML. 
 
 It defines:
@@ -69,16 +69,18 @@ document.getElementById("myImg").height;
 document.getElementById('myimage').src = "compman.gif";
 document.getElementById("planets").useMap;
 
+
 Table
 document.getElementById(id).rows[0].cells;
 document.getElementById("demo").innerHTML = x[1].innerHTML;
 document.getElementById(id).createCaption().innerHTML = "My new caption";
 
 
+
 var x = document.getElementById(id).insertRow(0);
   var y = x.insertCell(0);
   var z = x.insertCell(1);
-  y.innerHTML =  yvalue 
+  y.innerHTML =  yvalue;
   z.innerHTML =  zvalue;
 
 document.getElementById('myTable').deleteRow(0)
@@ -245,21 +247,6 @@ function bgChange(bg) {
   </tr>	
 </table>
 
-
-
-<!-- Buttons -->
-
-
-<form>
-<input type="button" id="btn01" value="OK">
-</form>
-<button onclick="disableElement()">Disable</button>
-
-<script>
-function disableElement() {
-  document.getElementById("btn01").disabled = true;
-}
-</script>
 
 
 </body>
