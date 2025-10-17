@@ -60,6 +60,8 @@ Server Applications
 
 JavaScript - Syntax
 
+
+
 <script>
    JavaScript code
 </script>
@@ -126,6 +128,10 @@ JavaScript in External File   file.js
 	
 	<script>
 		
+		
+		
+		
+		
 		// comment single line
 		
 		
@@ -168,23 +174,31 @@ JavaScript in External File   file.js
 			document.write(`<h1>Not Elegible For Driving</h1>`);
 		}
 		
+		for(var i=1;i<=10;i++)
+		{
+			document.write(`<h1> ${i}</h1>`);
+		}
+		
 	</script>	
 		
 	<hr>		
+
+		<h1 id="test">Hello i am HTML</h1>
+	
 		
-	<p id="test">Hi i am html paragraph</p>	
+		<script>
+			document.getElementById('test').innerHTML="Hello i am JavaScript";
+		</script>
 		
 		
-	<p style="color:red;background-color:yellow" id="demo"> Hi i am css Javascript </p>	
-	<script>
+		<h1 id="test1" style="background-color:red;color:yellow">Hello i am HTML</h1>
+	
 		
-		document.getElementById('test').innerHTML="<h1>Hi i am Javascript</h1>";
+		<script>
+			document.getElementById('test1').style.backgroundColor="black";
+			document.getElementById('test1').style.color="white";
+		</script>
 		
-		// color = color  background-color = backgroundColor
-		
-		document.getElementById('demo').style.color="green";
-		document.getElementById('demo').style.backgroundColor="blue";
-	</script>
 		
 	</body>
 </html>
