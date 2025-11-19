@@ -1,0 +1,39 @@
+import React from 'react'
+
+import Header from '../component/Header'
+import Footer from '../component/Footer'
+
+function Contact() {
+    return (
+        <div>
+            <Header />
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>Contact Me</h2>
+                        <form action="/action_page.php">
+                            <div class="mb-3 mt-3">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd"/>
+                            </div>
+                            <div class="form-check mb-3">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="remember"/> Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <Footer />
+        </div>
+    )
+}
+
+export default Contact
