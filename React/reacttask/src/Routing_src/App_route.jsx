@@ -45,6 +45,7 @@ import AHeader from './Component/AHeader'
 import AFooter from './Component/AFooter'
 import AAbout from './Pages/AAbout'
 import AContact from './Pages/AContact'
+import PNF from './Pages/PNF'
 
 function App_route() {
   return (
@@ -55,6 +56,7 @@ function App_route() {
                 <Route path="/" element={<><AHeader/><AHome/><AFooter/></>}></Route>
                 <Route path="/about" element={<><AHeader/><AAbout/><AFooter/></>}></Route>
                 <Route path="/contact" element={<><AHeader/><AContact/><AFooter/></>}></Route>
+                <Route path="*" element={<><PNF/></>}></Route>
             </Routes>
         </BrowserRouter>
      

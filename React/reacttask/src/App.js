@@ -6,7 +6,9 @@ import About from "./Layout/pages/About";
 import Contact from "./Layout/pages/Contact";
 import Home from "./Layout/pages/Home";
 import Module_css from "./Module_css/Module_css";
+import MUI from "./MUI/MUI";
 import Main_props from "./Props/Main_props";
+import React_bootstrap from "./React_bootstrap/React_bootstrap";
 import App_route from "./Routing_src/App_route";
 import Main_Sass from "./Sass/Main_Sass";
 
@@ -33,10 +35,10 @@ function App() {
 
         
         // Routing
+        //<App_route/>
 
-        <App_route/>
-
-
+        //<React_bootstrap/>
+        <MUI/>
       }
        
 
