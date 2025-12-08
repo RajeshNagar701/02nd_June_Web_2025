@@ -48,6 +48,17 @@ function Haeder() {
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/contact">Contact</NavLink>
                                 </li>
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" to="/login">Login</NavLink>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">My Account</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                                        <li><a class="dropdown-item" href="#">My Orders</a></li>
+                                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                         <div className="navbar align-self-center d-flex">
