@@ -11,6 +11,9 @@ import Main_props from "./Props/Main_props";
 import React_bootstrap from "./React_bootstrap/React_bootstrap";
 import App_route from "./Routing_src/App_route";
 import Main_Sass from "./Sass/Main_Sass";
+import State_class from "./State/State_class";
+import State_func from "./State/State_func";
+import Styled_component from "./Styled-component/Styled_component";
 
 function App() {
   return (
@@ -39,7 +42,13 @@ function App() {
         //<App_route/>
 
         //<React_bootstrap/>
-        <MUI/>
+        //<MUI/>
+        //<Styled_component/>
+        
+        //state
+        //<State_class/>
+        <State_func/>
+      
       }
        
 
