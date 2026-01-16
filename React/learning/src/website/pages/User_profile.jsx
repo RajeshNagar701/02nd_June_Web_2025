@@ -16,7 +16,7 @@ function User_profile() {
         const obj = await axios.get(`http://localhost:3000/customer/${sessionStorage.getItem('sid')}`);
         setData(obj.data)
     }
-    
+
     return (
         <div>
             <section className="bg-success py-5">
@@ -52,7 +52,7 @@ function User_profile() {
                                 <p className="h2 text-decoration-none text-dark">Email : {data.email}</p>
                                 <p className="h2 text-decoration-none text-dark">Mobile : {data.mobile}</p>
                                 <p className="h2 text-decoration-none text-dark">status : {data.status}</p>
-                                <button className='btn btn-primary' >Edit Profile</button>
+                                <button className='btn btn-primary' onClick={()=>redirect('/edit_profile/'+data.id)}>Edit Profile</button>
                             </div>
                         </div>
                     </div>

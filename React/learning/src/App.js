@@ -19,6 +19,7 @@ import Manage_product from "./admin/pages/Manage_product";
 import Manage_contact from "./admin/pages/Manage_contact";
 import Manage_customer from "./admin/pages/Manage_customer";
 import User_profile from "./website/pages/User_profile";
+import Edit_profile from "./website/pages/Edit_profile";
 
 function App() {
   return (
@@ -35,15 +36,15 @@ function App() {
           <Route path="/signup" element={<><Header /><Signup /><Footer /></>}></Route>
 
           <Route path="/user_profile" element={<><Header /><User_profile /><Footer /></>}></Route>
-          
+          <Route path="/edit_profile/:id" element={<><Header /><Edit_profile /><Footer /></>}></Route>
 
 
-
-          <Route path="/admin-login" element={<><Admin_login /></>}></Route>
-          
+          <Route path="/admin-login" element={<><Admin_login /></>}></Route>          
           <Route path="/dashboard" element={<><AHeader /><Dashboard /><AFooter /></>}></Route>
           <Route path="/add_categories" element={<><AHeader /><Add_categories /><AFooter /></>}></Route>
           <Route path="/manage_categories" element={<><AHeader /><Manage_categories/><AFooter /></>}></Route>
+         
+         
           <Route path="/add_product" element={<><AHeader /><Add_product /><AFooter /></>}></Route>
           <Route path="/manage_product" element={<><AHeader /><Manage_product/><AFooter /></>}></Route>
           <Route path="/manage_contact" element={<><AHeader /><Manage_contact/><AFooter /></>}></Route>
