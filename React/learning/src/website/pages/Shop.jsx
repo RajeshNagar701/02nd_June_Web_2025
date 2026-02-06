@@ -1,12 +1,18 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
+
 
 function Shop() {
+
+
+    const redirect=useNavigate();
+
     useEffect(() => {
         fetch_data1();
-        fetch_data2();
-    }, []);
+        fetch_data2(null);
+    },[]);
 
     const [data1, setData1] = useState([]);
     const [data2, setData2] = useState([]);
@@ -15,9 +21,17 @@ function Shop() {
         const obj = await axios.get(`http://localhost:3000/categories`);
         setData1(obj.data)
     }
-    const fetch_data2 = async () => {
-        const obj = await axios.get(`http://localhost:3000/products`);
-        setData2(obj.data)
+    const fetch_data2 = async (id) => {
+        if(id==null)
+        {
+            const obj = await axios.get(`http://localhost:3000/products`);
+            setData2(obj.data)
+        }
+        else
+        {
+            const obj = await axios.get(`http://localhost:3000/products?cate_id=${id}`);
+            setData2(obj.data)
+        }
     }
     return (
         <div>
@@ -28,17 +42,17 @@ function Shop() {
                         <h1 className="h2 pb-4">Categories</h1>
                         <ul className="list-unstyled templatemo-accordion">
                             <li className="pb-3">
-                                <a className="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                                <p onClick={()=>fetch_data2(null)} className="collapsed d-flex justify-content-between h3 text-decoration-none" >
                                     All Products
-                                </a>
+                                </p>
                             </li>
                             {
                                 data1.map((value, index, arr) => {
                                     return (
                                         <li className="pb-3">
-                                            <a className="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                                            <p onClick={()=>fetch_data2(value.id)} className="collapsed d-flex justify-content-between h3 text-decoration-none" >
                                                 {value.name}
-                                            </a>
+                                            </p>
                                         </li>
                                     )
                                 })
@@ -60,9 +74,9 @@ function Shop() {
                                                     <img className="card-img rounded-0 img-fluid" src={value.image}height="100px" />
                                                     <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                                         <ul className="list-unstyled">
-                                                            <li><Link className="btn btn-success text-white" to="/shop_single"><i className="far fa-heart" /></Link></li>
-                                                            <li><Link className="btn btn-success text-white mt-2" to="/shop_single"><i className="far fa-eye" /></Link></li>
-                                                            <li><Link className="btn btn-success text-white mt-2" to="/shop_single"><i className="fas fa-cart-plus" /></Link></li>
+                                                            <li><span className="btn btn-success text-white"  onClick={()=> redirect('/shop_single/'+ value.id)}><i className="far fa-heart" /></span></li>
+                                                            <li><span className="btn btn-success text-white mt-2"  onClick={()=> redirect('/shop_single/'+ value.id)}><i className="far fa-eye" /></span></li>
+                                                            <li><span className="btn btn-success text-white mt-2" onClick={()=> redirect('/shop_single/'+ value.id)}><i className="fas fa-cart-plus" /></span></li>
                                                         </ul>
                                                     </div>
                                                 </div>

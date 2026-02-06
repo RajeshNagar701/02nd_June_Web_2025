@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 
 function Contact() {
 
@@ -14,13 +15,39 @@ function Contact() {
         setData({...data,id:new Date().getTime().toString(),[e.target.name]:e.target.value});
         console.log(data);
     }
+    
+    function validation(){
+        var result=true;
+        if(data.name=="" || data.name==null)
+        {
+            toast.error('Name field is required');
+            result=false;
+            return false;
+        }
+        if(data.email=="" || data.email==null)
+        {
+            toast.error('email field is required');
+            result=false;
+            return false;
+        }
+        if(data.comment=="" || data.comment==null)
+        {
+            toast.error('Comment field is required');
+            result=false;
+            return false;
+        }
+        return result;
+    }
 
     const onsubmitHandel=async(e)=>{
         e.preventDefault();
-        const res= await axios.post(`http://localhost:3000/contact`,data);
-        setData({...data,name:"",email:"",comment:""});
-        alert('Inquiry Submitted Success');
-        return false;
+        if(validation())
+        {
+            const res= await axios.post(`http://localhost:3000/contact`,data);
+            setData({...data,name:"",email:"",comment:""});
+            toast.success('Inquiry Submitted Success');
+            return false;
+        }
     }
 
 

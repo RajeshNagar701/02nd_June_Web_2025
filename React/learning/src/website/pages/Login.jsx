@@ -1,11 +1,13 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
+import swal from 'sweetalert';
 
 function Login() {
 
 
-    const redirect=useNavigate();
+    const redirect = useNavigate();
 
     const [data, setData] = useState({
         email: "",
@@ -16,35 +18,58 @@ function Login() {
         setData({ ...data, [e.target.name]: e.target.value });
         console.log(data);
     }
+    function validation() {
+        var result = true;
+
+        if (data.email == "" || data.email == null) {
+            toast.error('email field is required');
+            result = false;
+            return false;
+        }
+        if (data.password == "" || data.password == null) {
+            toast.error('password field is required');
+            result = false;
+            return false;
+        }
+        return result;
+    }
 
     const onsubmitHandel = async (e) => {
         e.preventDefault(); // page not refresh/relode
-        const res = await axios.get(`http://localhost:3000/customer?email=${data.email}`);
-        if (res.data.length > 0) {
-            if (res.data[0].password == data.password) {
-                if (res.data[0].status == "Unblock") {
+        if (validation()) {
+            const res = await axios.get(`http://localhost:3000/customer?email=${data.email}`);
+            if (res.data.length > 0) {
+                if (res.data[0].password == data.password) {
+                    if (res.data[0].status == "Unblock") {
 
-                    //session create
-                    sessionStorage.setItem('sid',res.data[0].id);
-                    sessionStorage.setItem('sname',res.data[0].name);
+                        //session create
+                        sessionStorage.setItem('sid', res.data[0].id);
+                        sessionStorage.setItem('sname', res.data[0].name);
 
-                    alert('Login Success!');
-                    redirect('/');
-                    return false;  
+                        swal({
+                            title: "Login Success!",
+                            text: "You clicked the button!",
+                            icon: "success",
+                            button: "Aww yiss!",
+                        });
+
+                        redirect('/');
+                        return false;
+                    }
+                    else {
+                        toast.error('Login Failed Due Blocked Account!');
+                        return false;
+                    }
                 }
                 else {
-                    alert('Login Failed Due Blocked Account!');
+                    toast.error('Login Failed Due Wrong Password!');
                     return false;
                 }
             }
             else {
-                alert('Login Failed Due Wrong Password!');
+                toast.error('Login Failed Due Email does not exist!');
                 return false;
             }
-        }
-        else {
-            alert('Login Failed Due Email does not exist!');
-            return false;
         }
 
     }
@@ -63,11 +88,11 @@ function Login() {
 
                             <div className="form-group col-md-12 mb-3">
                                 <label htmlFor="inputemail">Email</label>
-                                <input type="email" value={data.email} onChange={changeHandel} className="form-control mt-1" id="email" name="email" placeholder="Email" />
+                                <input type="email" value={data.email} onChange={changeHandel} className="form-control mt-1"  name="email" placeholder="Email" />
                             </div>
                             <div className="form-group col-md-12 mb-3">
                                 <label htmlFor="inputname">Password</label>
-                                <input type="password" value={data.password} onChange={changeHandel} className="form-control mt-1" id="name" name="password" placeholder="Password" />
+                                <input type="password" value={data.password} onChange={changeHandel} className="form-control mt-1" name="password" placeholder="Password" />
                             </div>
                         </div>
 

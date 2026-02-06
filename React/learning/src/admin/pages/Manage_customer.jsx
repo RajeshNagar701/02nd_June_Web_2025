@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function Manage_customer() {
     useEffect(()=>{
@@ -17,7 +18,7 @@ function Manage_customer() {
     const deleteHandel = async (id) => {
         const obj = await axios.delete(`http://localhost:3000/customer/${id}`);
         fetch_data();
-        alert('delete success');
+        toast.success('delete success');
         return false;
     }
     return (

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function Manage_contact() {
     useEffect(() => {
@@ -17,7 +18,7 @@ function Manage_contact() {
     const delete_data = async (id) => {
         const obj = await axios.delete(`http://localhost:3000/contact/${id}`);
         fetch_data();
-        alert('Contact Delete Succes');
+        toast.success('Contact Delete Succes');
         return false;
     }
 

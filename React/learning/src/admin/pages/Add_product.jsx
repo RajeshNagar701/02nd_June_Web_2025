@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function Add_product() {
 
@@ -36,7 +37,7 @@ function Add_product() {
         e.preventDefault();
         const obj = await axios.post(`http://localhost:3000/products`, obj_cate);
         setData({ ...obj_cate, cate_id: "", name: "", sdesc: "", ldesc: "", price: "", disc_price: "", image: "" });
-        alert('Products add success');
+        toast.success('Products add success');
         return false;
     }
 

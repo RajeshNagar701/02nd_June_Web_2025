@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function Admin_login() {
 
@@ -26,16 +27,16 @@ function Admin_login() {
                 sessionStorage.setItem('said', obj.data[0].id);
                 sessionStorage.setItem('saname', obj.data[0].name);
 
-                alert('Login Success ');
+                toast.success('Login Success ');
                 redirect('/dashboard');
             }
             else {
-                alert('Login Failed Due to Wrong Password');
+                toast.error('Login Failed Due to Wrong Password');
                 return false;
             }
         }
         else {
-            alert('Login Failed Due to Wrong Email');
+            toast.error('Login Failed Due to Wrong Email');
             return false;
         }
         return false;

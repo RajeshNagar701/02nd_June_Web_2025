@@ -1,13 +1,15 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, redirect, useNavigate, useParams } from 'react-router-dom'
+import { toast } from 'react-toastify';
+import swal from 'sweetalert';
 
 function Edit_profile() {
 
 
     useEffect(() => {
         fetch_data();
-    },[]);
+    }, []);
     const [data, setData] = useState({
         id: "",
         name: "",
@@ -28,14 +30,46 @@ function Edit_profile() {
         console.log(data);
     }
 
-    const redirect=useNavigate(); 
+    const redirect = useNavigate();
 
+    function validation() {
+        var result = true;
+        if (data.name == "" || data.name == null) {
+            toast.error('Name field is required');
+            result = false;
+            return false;
+        }
+        if (data.email == "" || data.email == null) {
+            toast.error('email field is required');
+            result = false;
+            return false;
+        }
+        if (data.password == "" || data.password == null) {
+            toast.error('password field is required');
+            result = false;
+            return false;
+        }
+        if (data.mobile == "" || data.mobile == null) {
+            toast.error('mobile field is required');
+            result = false;
+            return false;
+        }
+        return result;
+    }
     const onsubmitHandel = async (e) => {
         e.preventDefault(); // page not refresh/relode
-        const res = await axios.put(`http://localhost:3000/customer/${data.id}`, data);
-        setData({ ...data, name: "", email: "", password: "", mobile: "" });
-        alert('Update Success');
-        redirect('/user_profile');
+        if (validation()) {
+            const res = await axios.put(`http://localhost:3000/customer/${data.id}`, data);
+            setData({ ...data, name: "", email: "", password: "", mobile: "" });
+
+            swal({
+                title: "Update Success!",
+                text: "You clicked the button!",
+                icon: "success",
+                button: "Aww yiss!",
+            });
+            redirect('/user_profile');
+        }
     }
 
     return (

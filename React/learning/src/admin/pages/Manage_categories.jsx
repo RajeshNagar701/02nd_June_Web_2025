@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function Manage_categories() {
 
@@ -53,7 +54,7 @@ function Manage_categories() {
         e.preventDefault();
         const obj = await axios.put(`http://localhost:3000/categories/${edit_cate.id}`,edit_cate);
         setEdit_cate({...edit_cate,name:"",image:""});
-        alert('Categories Updated success');
+        toast.success('Categories Updated success');
         fetch_data();
         return false;
     }
