@@ -8,12 +8,15 @@ import Home from "./Layout/pages/Home";
 import Module_css from "./Module_css/Module_css";
 import MUI from "./MUI/MUI";
 import Main_props from "./Props/Main_props";
+import Main_drilling from "./Props_drilling/Main_drilling";
 import React_bootstrap from "./React_bootstrap/React_bootstrap";
 import App_route from "./Routing_src/App_route";
 import Main_Sass from "./Sass/Main_Sass";
 import State_class from "./State/State_class";
 import State_func from "./State/State_func";
 import Styled_component from "./Styled-component/Styled_component";
+import Use_context from "./UseContext/Use_context";
+import UseReducer from "./UseReducer/UseReducer";
 
 function App() {
   return (
@@ -47,7 +50,13 @@ function App() {
         
         //state
         //<State_class/>
-        <State_func/>
+        //<State_func/>
+      
+
+       // <Main_drilling/>
+       // <Use_context/> 
+
+       <UseReducer/>
       
       }
        

@@ -25,7 +25,6 @@ function Shop_single() {
                             <div className="card mb-3">
                                 <img className="card-img img-fluid" src={data.image} alt="Card image cap" id="product-detail" />
                             </div>
-                           
                         </div>
                         {/* col end */}
                         <div className="col-lg-7 mt-5">
