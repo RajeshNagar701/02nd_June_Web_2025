@@ -5,6 +5,7 @@ import Jsx from "./JSX/Jsx";
 import About from "./Layout/pages/About";
 import Contact from "./Layout/pages/Contact";
 import Home from "./Layout/pages/Home";
+import Main_lazy from "./Lazy_suspense/Main_lazy";
 import Module_css from "./Module_css/Module_css";
 import MUI from "./MUI/MUI";
 import Main_props from "./Props/Main_props";
@@ -56,7 +57,9 @@ function App() {
        // <Main_drilling/>
        // <Use_context/> 
 
-       <UseReducer/>
+       // <UseReducer/>
+
+       <Main_lazy/>
       
       }
        

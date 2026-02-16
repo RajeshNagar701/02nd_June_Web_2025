@@ -23,6 +23,7 @@ Not suitable for small-scale applications.
 Placeholders can slow down quick scrolling.
 Requires additional communication with the server to fetch resources.
 Can affect SEO and ranking
+
 */
 
 
@@ -31,6 +32,9 @@ import React,{ lazy,Suspense }  from 'react'
 
 // withaout lazy loading import
 import Hello from './Hello'
+
+//import Morning from './Morning'
+
 
 // with  lazy loading import
 const Morning = lazy(() => import("./Morning"));
@@ -44,7 +48,6 @@ function Main_lazy() {
         <Suspense fallback={<div class="spinner-border"></div>}>
           <Morning/>
         </Suspense>
-        
     </div>
   )
 }

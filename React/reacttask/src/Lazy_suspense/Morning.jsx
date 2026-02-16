@@ -22,7 +22,6 @@ function Morning() {
                 {/*   Kitchen Sink */}
                 <div className="panel panel-default">
                     <div className="panel-body">
-                        <h1>Morning .... </h1>
                         <div className="row">
                             {
                                 data.map((value, index) => {
