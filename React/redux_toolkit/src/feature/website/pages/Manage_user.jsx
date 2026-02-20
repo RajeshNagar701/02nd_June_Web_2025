@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
+import { useDispatch, useSelector } from 'react-redux'
+import { get_user } from '../../../app/userSlice';
 
 function Manage_user() {
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(get_user());
+    },[]);
+
+    const { user_arr } = useSelector((state) => state.user);
+
     return (
         <div>
             <Header />
@@ -13,6 +23,7 @@ function Manage_user() {
                         <table className="table">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Mobile</th>
@@ -20,27 +31,23 @@ function Manage_user() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>John</td>
-                                    <td>john@example.com</td>
-                                    <td>551518541</td>
-                                    <span class="p-2 mt-2 badge text-bg-success">Unblock</span>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>Mary</td>
-                                    <td>mary@example.com</td>
-                                    <td>551518541</td>
-                                    <span class="p-2 mt-2 badge text-bg-success">Unblock</span>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>July</td>
-                                    <td>july@example.com</td>
-                                    <td>551518541</td>
-                                    <span class="p-2 mt-2 badge text-bg-success">Unblock</span>
-                                    
-                                </tr>
+                                {
+                                    user_arr.map((value) => {
+                                        return (
+                                            <tr>
+                                                <td>{value.id}</td>
+                                                <td>{value.name}</td>
+                                                <td>{value.email}</td>
+                                                <td>{value.mobile}</td>
+                                                <span class="p-2 mt-2 badge text-bg-danger">Delete</span>
+                                                <span class="p-2 mt-2 badge text-bg-success">{value.status}</span>
+
+                                            </tr>
+                                        )
+                                    })
+                                }
+
+
                             </tbody>
                         </table>
 
